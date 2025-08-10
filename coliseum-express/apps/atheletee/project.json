@@ -1,0 +1,32 @@
+{
+  "name": "@coliseum-express/atheletee",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/atheletee/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "continuous": true,
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "@coliseum-express/atheletee:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "@coliseum-express/atheletee:build:development"
+        },
+        "production": {
+          "buildTarget": "@coliseum-express/atheletee:build:production"
+        }
+      }
+    },
+    "test": {
+      "options": {
+        "passWithNoTests": true
+      }
+    }
+  }
+}
